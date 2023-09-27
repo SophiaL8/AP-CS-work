@@ -1,6 +1,6 @@
 public class GoodDeal{
     public static void TestgoodDeal(double originalPrice, double salesPrice, boolean expected){
-        boolean result = goodDeal(originalPrice, double salesPrice);
+        boolean result = goodDeal(originalPrice, salesPrice);
             
             System.out.println("Original Price: " + originalPrice + " Sales Price: " + salesPrice + " Expected: " + expected + "Result: " + result);
     }
