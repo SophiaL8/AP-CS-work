@@ -44,19 +44,19 @@ public class Rectangle{
         return totalPerimeter/totalRect;
         
     }
-    public static String greatestArea(Rectangle [][] rectangles){
+    public static Rectangle greatestArea(Rectangle [][] rectangles){
         double maxValue = Double.MIN_VALUE;
-        String nameofRect = "";
+        Rectangle rect = null;
         for(Rectangle [] row: rectangles){
             for(Rectangle rectangle: row){
                 double area = rectangle.area();
                 if(area > maxValue){
                     maxValue = area;
-                    nameofRect = rectangle.getName();
+                    rect = rectangle;
                 }
             }
         }
-        return nameofRect;
+        return rect;
     }
     public static void main(String [] args){
         Rectangle[][] RectArray = {{new Rectangle("Rect1", 3.0, 4.0), new Rectangle("Rect2", 5.0, 2.0)},{new Rectangle("Rect3", 7.0, 1.0), new Rectangle("Rect4",2.0, 7.0)}};
