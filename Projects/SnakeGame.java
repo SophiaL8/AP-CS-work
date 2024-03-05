@@ -16,6 +16,9 @@ public void setup()
 {
     frameRate(10);
  s = new Snake(this, new PVector(275,500), new PVector(10,10), c);
+    s.addSegment(new PVector(275, 500));
+    s.addSegment(new PVector(265, 500));
+    s.addSegment(new PVector(255, 500));
    // snake = new ArrayList<Snake>();
     //snake.add(s);
    // addSnake();
@@ -59,12 +62,16 @@ public void keyPressed(){
 if(gameState == 2){
     if(keyCode == UP)
 {
+    s.moveSegments();
     s.moveUp();
 }else if(keyCode == DOWN){
+    s.moveSegments();
     s.moveDown();
 }else if(keyCode == RIGHT){
+    s.moveSegments();
     s.moveRight();
 }else if(keyCode == LEFT){
+    s.moveSegments();
     s.moveLeft();
 }
 }
