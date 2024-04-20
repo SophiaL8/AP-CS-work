@@ -22,7 +22,14 @@ public void display(){
     //x = x+xspeed;
    // y = y+yspeed;
 }
-    
+public PVector getMainPosition(){
+    return segments.get(0);
+}
+    /*
+public PVector getSegY(){
+    return segments.get(y);
+}
+*/
 public void moveUp(){
     segments.get(0).add(0,-10);
 }

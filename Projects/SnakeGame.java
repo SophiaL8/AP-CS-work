@@ -5,6 +5,8 @@ public class SnakeGame extends PApplet
   //PVector pos= new PVector(275,500);
   //PVector vel = new PVector(10,10);
    float c = color(random(255), random(255), random(255));
+   float foodx;
+float foody;
 int gameState = 1;
 Snake s;
 
@@ -19,6 +21,9 @@ public void setup()
     s.addSegment(new PVector(275, 500));
     s.addSegment(new PVector(265, 500));
     s.addSegment(new PVector(255, 500));
+    foodx = random(0, width - 10);
+    foody = random(0, height - 10);
+    
    // snake = new ArrayList<Snake>();
     //snake.add(s);
    // addSnake();
@@ -44,6 +49,12 @@ background(0);
   }
 
 }
+
+public void addDot(){
+fill(random(0,255));
+rect(foodx, foody, 7, 7);
+
+}
 public void Intro(){
 fill(255);
 text("This is the snake game!", width/2, height/2);
@@ -54,9 +65,18 @@ background(128);
 //fill(25, 25, 50);
 //rect(random(600), random(600), 5, 5);
 s.display();
+if(s.getMainPosition().x == foodx && s.getMainPosition().y == foody){
+foodx = random(0, width - 10);
+foody = random(0, height - 10);
+s.addSegment(new PVector(0, 0));
+}else{
+addDot();
+}
+
 }
 public void EndGame(){
-
+fill(255);
+text("Game Over!", width/2, height/2);
 }
 public void keyPressed(){
 if(gameState == 2){
