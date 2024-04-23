@@ -5,8 +5,8 @@ public class SnakeGame extends PApplet
   //PVector pos= new PVector(275,500);
   //PVector vel = new PVector(10,10);
    float c = color(random(255), random(255), random(255));
-   float foodx;
-float foody;
+   int foodx;
+int foody;
 int gameState = 1;
 Snake s;
 
@@ -21,8 +21,8 @@ public void setup()
     s.addSegment(new PVector(275, 500));
     s.addSegment(new PVector(265, 500));
     s.addSegment(new PVector(255, 500));
-    foodx = random(0, width - 10);
-    foody = random(0, height - 10);
+    foodx = (int)random(0, width - 10);
+    foody = (int)random(0, height - 10);
     
    // snake = new ArrayList<Snake>();
     //snake.add(s);
@@ -65,9 +65,19 @@ background(128);
 //fill(25, 25, 50);
 //rect(random(600), random(600), 5, 5);
 s.display();
+/*
 if(s.getMainPosition().x == foodx && s.getMainPosition().y == foody){
-foodx = random(0, width - 10);
-foody = random(0, height - 10);
+foodx = (int)random(0, width - 10);
+foody = (int)random(0, height - 10);
+s.addSegment(new PVector(0, 0));
+}else{
+addDot();
+}
+*/
+PVector snakepos = s.getMainPosition();
+if(dist(snakepos.x, snakepos.y, foodx, foody) < 10){
+foodx = (int)random(0, width - 10);
+foody = (int)random(0, height - 10);
 s.addSegment(new PVector(0, 0));
 }else{
 addDot();
